@@ -13,6 +13,16 @@ const waffles = {
     image: 'assets/waffles1.png',
     items: []
 }
+let Item = function(thing, modifier, description) {
+this.thing = thing;
+this.modifier = modifier;
+this.description = description;
+}
+let items = {
+    feed:new Item("Feed",+5,"Feed the pig"),
+    hug:new Item("Hug",+10,"Hug the pig"),
+    love:new Item("Love",+20,"Love the pig")
+}
 
 let nowPig = piglet
 let pigs = [piglet, waffles]
@@ -23,6 +33,9 @@ const targetName = document.getElementById('targetName')
 const slapButton = document.getElementById('slap-button');
 const punchButton = document.getElementById('punch-button')
 const kickButton = document.getElementById('kick-button')
+const feedButton = document.getElementById('feed-button')
+const hugButton = document.getElementById('hug-button')
+const loveButton = document.getElementById('love-button')
 
 function draw() {
     pigImg.setAttribute('src', nowPig.image)
