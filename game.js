@@ -2,18 +2,21 @@ const piglet = {
     name: "Piglet",
     health: 100,
     hits:0,
-    image: 'assets/piglet.png'
+    image: 'assets/piglet.png',
+    items: []
 }
 
 const waffles = {
     name: "Waffles",
     health:100,
     hits: 0,
-    image: 'assets/waffles.png'
+    image: 'assets/waffles1.png',
+    items: []
 }
 
-let nowPig = waffles
+let nowPig = piglet
 let pigs = [piglet, waffles]
+
 const pigImg = document.getElementById('pig-img')
 const hits = document.getElementById('hits')
 const targetName = document.getElementById('targetName')
@@ -52,9 +55,9 @@ function kick() {
     update()
 }
 function update() {
-    document.getElementById('health').innerText = piglet.health.toString()
-    document.getElementById('hits').innerText = hits.toString()
-    document.getElementById('targetName').innerText = targetName
+    document.getElementById('health').innerText = nowPig.health.toString()
+    document.getElementById('hits').innerText = nowPig.hits.toString()
+    document.getElementById('targetName').innerText = nowPig.name
 }
 function setNowPig(pigIndex) {
     nowPig = pigs[pigIndex]
