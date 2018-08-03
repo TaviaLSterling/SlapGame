@@ -19,9 +19,9 @@ this.modifier = modifier;
 this.description = description;
 }
 let items = {
-    feed:new Item("Feed",+5,"Feed the pig"),
-    hug:new Item("Hug",+10,"Hug the pig"),
-    love:new Item("Love",+20,"Love the pig")
+    feed:new Item("Feed",5,"Feed the pig"),
+    hug:new Item("Hug",10,"Hug the pig"),
+    love:new Item("Love",20,"Love the pig")
 }
 
 let nowPig = piglet
@@ -67,6 +67,20 @@ function kick() {
     draw()
     update()
 }
+
+function feed() {
+nowPig.items.push(items.feed.modifier)
+}
+
+function hug() {
+nowPig.items.push(items.hug)
+}
+
+function love() {
+nowPig.items.push(items.love)
+}
+
+
 function update() {
     document.getElementById('health').innerText = nowPig.health.toString()
     document.getElementById('hits').innerText = nowPig.hits.toString()
