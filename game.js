@@ -6,6 +6,7 @@ const slapButton = document.getElementById('slap-button');
 const piglet = {
     name: "Piglet",
     health: 100,
+    img: 'assets/piglet.png'
 }
 
 const waffles = {
