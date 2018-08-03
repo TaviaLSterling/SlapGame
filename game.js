@@ -18,23 +18,37 @@ const pigImg = document.getElementById('pig-img')
 const hits = document.getElementById('hits')
 const targetName = document.getElementById('targetName')
 const slapButton = document.getElementById('slap-button');
+const punchButton = document.getElementById('punch-button')
+const kickButton = document.getElementById('kick-button')
 
-
+function draw() {
+    pigImg.setAttribute('src', nowPig.image)
+    targetName.innerText = nowPig.name
+    hits.innerText = nowPig.hits.toString()
+    if (nowPig.health <= 0) {
+        slapButton.disabled = true;
+        punchButton.disabled = true;
+        kickButton.disabled = true;
+    }
+}
 function slap() {
-    health--;
-    hits++;
+    nowPig.health--;
+    nowPig.hits++;
+    draw();
     update();
 }
 
 function punch() {
-    health -=5;
-    hits++;
+    nowPig.health -=5;
+    nowPig.hits++;
+    draw();
     update()
 }
 
 function kick() {
-    health -=10;
-    hits++;
+    nowPig.health -=10;
+    nowPig.hits++;
+    draw()
     update()
 }
 function update() {
