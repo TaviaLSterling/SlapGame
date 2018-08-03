@@ -1,21 +1,23 @@
-
-let targetName = "Piglet";
-let hits = 0;
-const slapButton = document.getElementById('slap-button');
-
 const piglet = {
     name: "Piglet",
     health: 100,
-    img: 'assets/piglet.png'
+    hits:0,
+    image: 'assets/piglet.png'
 }
 
 const waffles = {
     name: "Waffles",
     health:100,
+    hits: 0,
+    image: 'assets/waffles.png'
 }
 
-let nowPig = piglet
+let nowPig = waffles
 let pigs = [piglet, waffles]
+const pigImg = document.getElementById('pig-img')
+const hits = document.getElementById('hits')
+const targetName = document.getElementById('targetName')
+const slapButton = document.getElementById('slap-button');
 
 
 function slap() {
@@ -40,5 +42,9 @@ function update() {
     document.getElementById('hits').innerText = hits.toString()
     document.getElementById('targetName').innerText = targetName
 }
-
+function setNowPig(pigIndex) {
+    nowPig = pigs[pigIndex]
+  
+    draw()
+  }
 update()
