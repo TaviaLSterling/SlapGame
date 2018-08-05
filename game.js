@@ -37,7 +37,7 @@ const loveButton = document.getElementById('love-button')
 const item = document.getElementById('items')
 
 function slap() {
-    nowPig.health -= 1 + addMods()
+    nowPig.health -= 1 + addMods();
     nowPig.hits++;
     draw();
     update();
@@ -88,10 +88,10 @@ function draw() {
     hits.innerText = nowPig.hits.toString()
     if (nowPig.health <= 0) {
         nowPig.health === 0
+        console.log("Pig has died")
         slapButton.disabled = true;
         punchButton.disabled = true;
         kickButton.disabled = true;
-        nowPig.pigImg = "assets/bacon.png"
     }
 
 }
@@ -112,9 +112,11 @@ function update() {
 
 
 function setNowPig() {
-    nowPig = pigs[1]
-  
+   if( nowPig = pigs[1]) {
+    nowPig.health == 0
+  }
     draw()
+    update()
   }
  
 update()
