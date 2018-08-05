@@ -5,22 +5,23 @@ container {
 
 img {
     position: absolute;
-    top: 50%;
+    top: 30%;
     left: 50%;
-    margin-top: -150px;
+    margin-top: 150px;
     margin-left: -200px;
  }
  .footer {
+     
         position:fixed;
         bottom:0px;
-        height:30px;
+        height:40px;
         width:100%;
 
  }
  body {
     font-family: 'Kirang Haerang', cursive;
-     background-color:black;
-     color:white;
+     background-image: url("field.jpeg");
+     background-size: cover;
      font-size: 30px;
  }
  #pig-img {
