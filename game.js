@@ -3,7 +3,7 @@ const piglet = {
     health: 100,
     hits:0,
     image: 'assets/piglet.png',
-    ittems: []
+    items: []
 }
 
 const waffles = {
@@ -11,32 +11,19 @@ const waffles = {
     health:100,
     hits: 0,
     image: 'assets/waffles1.png',
-    ittems: []
-}
-let feed = {
-name: 'Feed',
-modifier: 5,
-description: "Yum!"
-}
-let hug = {
-    name: 'Hug',
-    modifier: 10,
-    description: "*Hugs*"
-}
-let love = {
-    name: 'Love',
-    modifier: 20,
-    description: "This pig loves you too!"
+    items: []
 }
 
-let items = {
-    feed:new Item("Feed",5,"Feed the pig"),
-    hug:new Item("Hug",10,"Hug the pig"),
-    love:new Item("Love",20,"Love the pig")
-}
 
 let nowPig = piglet
 let pigs = [piglet, waffles]
+
+let items = {
+    feed: {name:"Feed",modifier: 5, description: "Feed the pig"},
+    hug: {name:"Hug",modifier: 10, description: "Hug the pig"},
+    love: {name:"Love", modifier: 20 ,description:"Love the pig"}
+}
+
 
 const pigImg = document.getElementById('pig-img')
 const hits = document.getElementById('hits')
@@ -47,26 +34,17 @@ const kickButton = document.getElementById('kick-button')
 const feedButton = document.getElementById('feed-button')
 const hugButton = document.getElementById('hug-button')
 const loveButton = document.getElementById('love-button')
+const item = document.getElementById('items')
 
-function draw() {
-    pigImg.setAttribute('src', nowPig.image)
-    targetName.innerText = nowPig.name
-    hits.innerText = nowPig.hits.toString()
-    if (nowPig.health <= 0) {
-        slapButton.disabled = true;
-        punchButton.disabled = true;
-        kickButton.disabled = true;
-    }
-}
 function slap() {
-    nowPig.health--;
+    nowPig.health -= 1
     nowPig.hits++;
     draw();
     update();
 }
 
 function punch() {
-    nowPig.health -=5;
+    nowPig.health  -=5;
     nowPig.hits++;
     draw();
     update()
@@ -80,22 +58,50 @@ function kick() {
 }
 
 function feed() {
-nowPig.items.push(items.feed.modifier)
+nowPig.health +=5
+nowPig.items.push(items.feed)
+draw()
+update()
 }
 
 function hug() {
-nowPig.items.push(items.hug.modifier)
+    nowPig.health +=10
+nowPig.items.push(items.hug)
+draw ()
+update()
 }
 
 function love() {
-nowPig.items.push(items.love.modifier)
+    nowPig.health +=20
+nowPig.items.push(items.love)
+draw ()
+update()
+}
+function giveItem(item) {
+    nowPig.items.push(items[item])
 }
 
-function addMods() {
-    for (let i = 0; i < nowPig.ittems.modifier.length; i++) {
-        const element = nowPig.ittems.modifier[i];
-        
+
+function draw() {
+    pigImg.setAttribute('src',nowPig.image)
+    targetName.innerText = nowPig.name
+    hits.innerText = nowPig.hits.toString()
+    if (nowPig.health <= 0) {
+        nowPig.health === 0
+        slapButton.disabled = true;
+        punchButton.disabled = true;
+        kickButton.disabled = true;
+        nowPig.pigImg = "assets/bacon.png"
     }
+
+}
+function addMods() {
+    let runningModTotal = 1
+    for (let i = 0; i < nowPig.items.length; i++) {
+        var item = nowPig.items[i];
+        runningModTotal += item.modifier
+    }
+    return runningModTotal
 }
 
 function update() {
@@ -103,9 +109,14 @@ function update() {
     document.getElementById('hits').innerText = nowPig.hits.toString()
     document.getElementById('targetName').innerText = nowPig.name
 }
-function setNowPig(pigIndex) {
-    nowPig = pigs[pigIndex]
+
+
+function setNowPig() {
+    nowPig = pigs[1]
   
     draw()
   }
+ 
 update()
+
+draw()
