@@ -88,7 +88,6 @@ function draw() {
     hits.innerText = nowPig.hits.toString()
     if (nowPig.health <= 0) {
         nowPig.health === 0
-        console.log("Pig has died")
         slapButton.disabled = true;
         punchButton.disabled = true;
         kickButton.disabled = true;
@@ -110,7 +109,6 @@ function update() {
     document.getElementById('targetName').innerText = nowPig.name
 }
 
-
 function setNowPig() {
    if( nowPig = pigs[1]) {
     nowPig.health == 0
@@ -122,3 +120,4 @@ function setNowPig() {
 update()
 
 draw()
+
