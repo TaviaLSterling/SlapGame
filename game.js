@@ -3,7 +3,7 @@ const piglet = {
     health: 100,
     hits:0,
     image: 'assets/piglet.png',
-    items: []
+    ittems: []
 }
 
 const waffles = {
@@ -11,13 +11,24 @@ const waffles = {
     health:100,
     hits: 0,
     image: 'assets/waffles1.png',
-    items: []
+    ittems: []
 }
-let Item = function(thing, modifier, description) {
-this.thing = thing;
-this.modifier = modifier;
-this.description = description;
+let feed = {
+name: 'Feed',
+modifier: 5,
+description: "Yum!"
 }
+let hug = {
+    name: 'Hug',
+    modifier: 10,
+    description: "*Hugs*"
+}
+let love = {
+    name: 'Love',
+    modifier: 20,
+    description: "This pig loves you too!"
+}
+
 let items = {
     feed:new Item("Feed",5,"Feed the pig"),
     hug:new Item("Hug",10,"Hug the pig"),
@@ -73,13 +84,19 @@ nowPig.items.push(items.feed.modifier)
 }
 
 function hug() {
-nowPig.items.push(items.hug)
+nowPig.items.push(items.hug.modifier)
 }
 
 function love() {
-nowPig.items.push(items.love)
+nowPig.items.push(items.love.modifier)
 }
 
+function addMods() {
+    for (let i = 0; i < nowPig.ittems.modifier.length; i++) {
+        const element = nowPig.ittems.modifier[i];
+        
+    }
+}
 
 function update() {
     document.getElementById('health').innerText = nowPig.health.toString()
