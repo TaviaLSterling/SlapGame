@@ -37,21 +37,21 @@ const loveButton = document.getElementById('love-button')
 const item = document.getElementById('items')
 
 function slap() {
-    nowPig.health -= 1 + addMods();
+    nowPig.health -= 1 * addMods();
     nowPig.hits++;
     draw();
     update();
 }
 
 function punch() {
-    nowPig.health  -=5 + addMods();
+    nowPig.health  -=5 * addMods();
     nowPig.hits++;
     draw();
     update()
 }
 
 function kick() {
-    nowPig.health -=10 + addMods();
+    nowPig.health -=10 * addMods() ;
     nowPig.hits++;
     draw()
     update()

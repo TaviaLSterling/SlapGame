@@ -13,7 +13,7 @@ img {
  .footer {
      
         position:fixed;
-        bottom:0px;
+        bottom:30px;
         height:40px;
         width:100%;
 
@@ -21,7 +21,7 @@ img {
  body {
     font-family: 'Kirang Haerang', cursive;
      background-image: url("field.jpeg");
-     background-size: cover;
+     background-size: auto;
      font-size: 30px;
  }
  #pig-img {
